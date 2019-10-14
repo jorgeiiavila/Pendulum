@@ -26,20 +26,20 @@ class VariableConfigurationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        longitudeTF.text = String(pendulum!.longitude)
-        gravityTF.text = String(pendulum!.gravity)
+        longitudeTF.text = String(format: "%.1f", pendulum!.longitude)
+        gravityTF.text = String(format: "%.1f", pendulum!.gravity)
         longitudeSlider.value = pendulum!.longitude / maxLongitudeValue
         gravitySlider.value = pendulum!.gravity / maxGravityValue
     }
     
     @IBAction func longitudeValueChanged(_ sender: UISlider) {
         let newValue = round((maxLongitudeValue - 0.1) * sender.value * 10) / 10 + 0.1
-        longitudeTF.text = String(newValue)
+        longitudeTF.text = String(format: "%.1f", newValue)
     }
     
     @IBAction func gravityValueChanged(_ sender: UISlider) {
         let newValue = round(maxGravityValue * sender.value * 10) / 10
-        gravityTF.text = String(newValue)
+        gravityTF.text = String(format: "%.1f", newValue)
     }
 
     @IBAction func saveVariableConfiguration(_ sender: UIButton) {
@@ -49,4 +49,10 @@ class VariableConfigurationViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    @IBAction func resetDefaultValues(_ sender: UIButton) {
+        longitudeTF.text = String(format: "%.1f", 0.7)
+        gravityTF.text = String(format: "%.1f", 9.8)
+        longitudeSlider.value = 0.7 / maxLongitudeValue
+        gravitySlider.value = 9.8 / maxGravityValue
+    }
 }
