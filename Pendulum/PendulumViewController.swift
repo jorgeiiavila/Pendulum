@@ -12,6 +12,7 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables {
 
     @IBOutlet weak var pendulumStringView: UIView!
     @IBOutlet weak var pendulumView: UIView!
+    @IBOutlet weak var configureVariablesBtn: UIButton!
     
     // Normal Timer Variables
     @IBOutlet weak var normalTimerView: UIView!
@@ -29,6 +30,8 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables {
         pendulumStringView.center.x = self.view.center.x
         pendulumView.center.x = self.view.center.x
         pendulumView.layer.cornerRadius = pendulumView.frame.width / 2
+        
+        configureVariablesBtn.layer.cornerRadius = 8
     }
     
     func initialPendulumSetup() {

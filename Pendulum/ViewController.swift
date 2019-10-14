@@ -10,8 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var simulatorBtn: UIButton!
+    @IBOutlet weak var questionsBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        simulatorBtn.layer.cornerRadius = 8
+        questionsBtn.layer.cornerRadius = 8
     }
 
     @IBAction func preguntas(_ sender: UIButton) {

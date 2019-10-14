@@ -13,7 +13,9 @@ protocol UpdatePendulumVariables {
 }
 
 class VariableConfigurationViewController: UIViewController {
-
+    
+    @IBOutlet weak var saveBtn: UIButton!
+    
     @IBOutlet weak var longitudeTF: UITextField!
     @IBOutlet weak var gravityTF: UITextField!
     @IBOutlet weak var longitudeSlider: UISlider!
@@ -26,6 +28,8 @@ class VariableConfigurationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveBtn.layer.cornerRadius = 8
+        
         longitudeTF.text = String(format: "%.1f", pendulum!.longitude)
         gravityTF.text = String(format: "%.1f", pendulum!.gravity)
         longitudeSlider.value = pendulum!.longitude / maxLongitudeValue

@@ -32,7 +32,7 @@ class QuestionTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
+        if section == 0 {
             return 1
         } else {
             return 4
@@ -45,7 +45,7 @@ class QuestionTableViewController: UITableViewController {
         self.generateQuestion()
         
         //question section
-        if indexPath.section == 0{
+        if indexPath.section == 0 {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "QuestionTVCell") as! QuestionTableViewCell
             cell.questionLabel.text = self.question.question
             return cell
@@ -59,6 +59,10 @@ class QuestionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.section == 0 {
+            return
+        }
         
         if question.answers[indexPath.row].isCorrect {
             let cell = self.tableView.cellForRow(at: indexPath)
@@ -132,5 +136,9 @@ class QuestionTableViewController: UITableViewController {
         }
         answer.shuffle()
         return answer
+    }
+    
+    @IBAction func closeView(_ sender: Any) {
+        self.dismiss(animated: true)
     }
 }
