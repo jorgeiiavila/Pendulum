@@ -14,6 +14,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
-
+    @IBAction func preguntas(_ sender: UIButton) {
+        let sb = UIStoryboard(name: "Questions", bundle: nil)
+        let vc = sb.instantiateViewController(identifier: "ncQuestions")
+        vc.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
 }
 

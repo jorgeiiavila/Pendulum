@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kbk-I3-WIj">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kbk-I3-WIj">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,16 +10,16 @@
         <!--Navigation Controller-->
         <scene sceneID="S3K-68-TD0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WdF-im-wBU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="kbk-I3-WIj" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ejN-wT-Ntu">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UlP-3h-bgS"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WdF-im-wBU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-762" y="114"/>
         </scene>
@@ -28,7 +28,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Pendulum" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXd-Vr-4xs">
@@ -43,6 +43,9 @@
                                 <rect key="frame" x="152" y="337" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Preguntas"/>
+                                <connections>
+                                    <action selector="preguntas:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tUM-KP-JjP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -59,7 +62,7 @@
             <objects>
                 <viewController id="y8h-x1-RTL" customClass="PendulumViewController" customModule="Pendulum" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ixt-Of-zlp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="71O-jH-pBc">
@@ -70,7 +73,7 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r6G-UR-mWd">
                                 <rect key="frame" x="156.44776119403105" y="338" width="99.999999999999886" height="99.999999999999929"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WxB-58-w54">
                                 <rect key="frame" x="136.52736318408097" y="573" width="139.99999999999989" height="30"/>
@@ -146,23 +149,23 @@
             <objects>
                 <viewController id="qax-5s-eIN" customClass="VariableConfigurationViewController" customModule="Pendulum" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y1P-Xc-UFu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="P51-4J-S8G">
-                                <rect key="frame" x="30" y="186" width="354" height="31"/>
+                                <rect key="frame" x="30" y="142" width="315" height="31"/>
                                 <connections>
                                     <action selector="longitudeValueChanged:" destination="qax-5s-eIN" eventType="valueChanged" id="yd0-FE-hWs"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="A6g-gT-WSG">
-                                <rect key="frame" x="30" y="314" width="354" height="31"/>
+                                <rect key="frame" x="30" y="270" width="315" height="31"/>
                                 <connections>
                                     <action selector="gravityValueChanged:" destination="qax-5s-eIN" eventType="valueChanged" id="uXZ-sU-jwH"/>
                                 </connections>
                             </slider>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="QoB-xO-IIo">
-                                <rect key="frame" x="32" y="120" width="350" height="34"/>
+                                <rect key="frame" x="32" y="76" width="311" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitud:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fx-h1-1bL">
                                         <rect key="frame" x="0.0" y="0.0" width="76" height="34"/>
@@ -171,14 +174,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CCj-xn-G8H">
-                                        <rect key="frame" x="108" y="0.0" width="242" height="34"/>
+                                        <rect key="frame" x="108" y="0.0" width="203" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="6hR-7e-S8E">
-                                <rect key="frame" x="32" y="248" width="350" height="34"/>
+                                <rect key="frame" x="32" y="204" width="311" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gravedad:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jo-0x-uiF">
                                         <rect key="frame" x="0.0" y="0.0" width="83.5" height="34"/>
@@ -187,24 +190,24 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QRI-IR-wNY">
-                                        <rect key="frame" x="115.5" y="0.0" width="234.5" height="34"/>
+                                        <rect key="frame" x="115.5" y="0.0" width="195.5" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5ln-qv-2NL">
-                                <rect key="frame" x="32" y="376" width="350" height="60"/>
+                                <rect key="frame" x="32" y="332" width="311" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SU-GS-Joq">
-                                        <rect key="frame" x="0.0" y="0.0" width="350" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="30"/>
                                         <state key="normal" title="Guardar"/>
                                         <connections>
                                             <action selector="saveVariableConfiguration:" destination="qax-5s-eIN" eventType="touchUpInside" id="IqX-mh-q3a"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shO-Ct-LEx">
-                                        <rect key="frame" x="0.0" y="30" width="350" height="30"/>
+                                        <rect key="frame" x="0.0" y="30" width="311" height="30"/>
                                         <state key="normal" title="Restabler Valores Predeterminados"/>
                                         <connections>
                                             <action selector="resetDefaultValues:" destination="qax-5s-eIN" eventType="touchUpInside" id="QQZ-hH-Y8j"/>
@@ -248,6 +251,6 @@
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
-        <image name="play" catalog="system" width="58" height="64"/>
+        <image name="play" catalog="system" width="60" height="64"/>
     </resources>
 </document>

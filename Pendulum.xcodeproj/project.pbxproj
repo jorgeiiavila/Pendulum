@@ -18,6 +18,11 @@
 		5A46EECD2353EC7800FD1848 /* PendulumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46EECC2353EC7800FD1848 /* PendulumViewController.swift */; };
 		5A46EECF2353ECBF00FD1848 /* Pendulum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46EECE2353ECBF00FD1848 /* Pendulum.swift */; };
 		5A46EED12353F6C900FD1848 /* VariableConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46EED02353F6C900FD1848 /* VariableConfigurationViewController.swift */; };
+		D2E3C6092354463D002CE684 /* Questions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E3C6082354463D002CE684 /* Questions.storyboard */; };
+		D2E3C60B2354466A002CE684 /* QuestionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3C60A2354466A002CE684 /* QuestionTableViewController.swift */; };
+		D2E3C60D235449FB002CE684 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3C60C235449FB002CE684 /* Question.swift */; };
+		D2E3C60F23544C9A002CE684 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3C60E23544C9A002CE684 /* Answer.swift */; };
+		D2E3C611235455D7002CE684 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3C610235455D7002CE684 /* QuestionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +60,11 @@
 		5A46EECC2353EC7800FD1848 /* PendulumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendulumViewController.swift; sourceTree = "<group>"; };
 		5A46EECE2353ECBF00FD1848 /* Pendulum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pendulum.swift; sourceTree = "<group>"; };
 		5A46EED02353F6C900FD1848 /* VariableConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableConfigurationViewController.swift; sourceTree = "<group>"; };
+		D2E3C6082354463D002CE684 /* Questions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Questions.storyboard; sourceTree = "<group>"; };
+		D2E3C60A2354466A002CE684 /* QuestionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewController.swift; sourceTree = "<group>"; };
+		D2E3C60C235449FB002CE684 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		D2E3C60E23544C9A002CE684 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		D2E3C610235455D7002CE684 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,12 +119,17 @@
 				5A46EE9E2353E5DA00FD1848 /* SceneDelegate.swift */,
 				5A46EEA02353E5DA00FD1848 /* ViewController.swift */,
 				5A46EEA22353E5DA00FD1848 /* Main.storyboard */,
+				D2E3C6082354463D002CE684 /* Questions.storyboard */,
 				5A46EED02353F6C900FD1848 /* VariableConfigurationViewController.swift */,
 				5A46EECE2353ECBF00FD1848 /* Pendulum.swift */,
 				5A46EECC2353EC7800FD1848 /* PendulumViewController.swift */,
 				5A46EEA52353E5DE00FD1848 /* Assets.xcassets */,
 				5A46EEA72353E5DE00FD1848 /* LaunchScreen.storyboard */,
 				5A46EEAA2353E5DE00FD1848 /* Info.plist */,
+				D2E3C60A2354466A002CE684 /* QuestionTableViewController.swift */,
+				D2E3C60C235449FB002CE684 /* Question.swift */,
+				D2E3C60E23544C9A002CE684 /* Answer.swift */,
+				D2E3C610235455D7002CE684 /* QuestionTableViewCell.swift */,
 			);
 			path = Pendulum;
 			sourceTree = "<group>";
@@ -243,6 +258,7 @@
 			files = (
 				5A46EEA92353E5DE00FD1848 /* LaunchScreen.storyboard in Resources */,
 				5A46EEA62353E5DE00FD1848 /* Assets.xcassets in Resources */,
+				D2E3C6092354463D002CE684 /* Questions.storyboard in Resources */,
 				5A46EEA42353E5DA00FD1848 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +285,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A46EECD2353EC7800FD1848 /* PendulumViewController.swift in Sources */,
+				D2E3C611235455D7002CE684 /* QuestionTableViewCell.swift in Sources */,
+				D2E3C60D235449FB002CE684 /* Question.swift in Sources */,
+				D2E3C60B2354466A002CE684 /* QuestionTableViewController.swift in Sources */,
+				D2E3C60F23544C9A002CE684 /* Answer.swift in Sources */,
 				5A46EEA12353E5DA00FD1848 /* ViewController.swift in Sources */,
 				5A46EE9D2353E5DA00FD1848 /* AppDelegate.swift in Sources */,
 				5A46EED12353F6C900FD1848 /* VariableConfigurationViewController.swift in Sources */,
