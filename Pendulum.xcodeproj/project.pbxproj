@@ -23,6 +23,8 @@
 		D2E3C60D235449FB002CE684 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3C60C235449FB002CE684 /* Question.swift */; };
 		D2E3C60F23544C9A002CE684 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3C60E23544C9A002CE684 /* Answer.swift */; };
 		D2E3C611235455D7002CE684 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3C610235455D7002CE684 /* QuestionTableViewCell.swift */; };
+		D4035260236FFB63009DFD94 /* UIViewextensios.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403525F236FFB63009DFD94 /* UIViewextensios.swift */; };
+		D403526E237087B3009DFD94 /* PendulumScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403526D237087B3009DFD94 /* PendulumScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		D2E3C60C235449FB002CE684 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		D2E3C60E23544C9A002CE684 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		D2E3C610235455D7002CE684 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		D403525F236FFB63009DFD94 /* UIViewextensios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewextensios.swift; sourceTree = "<group>"; };
+		D403526D237087B3009DFD94 /* PendulumScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendulumScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,8 @@
 		5A46EE9B2353E5DA00FD1848 /* Pendulum */ = {
 			isa = PBXGroup;
 			children = (
+				D403526A237086F6009DFD94 /* PendulumScene */,
+				D403525E236FFB49009DFD94 /* Extensions */,
 				5A46EE9C2353E5DA00FD1848 /* AppDelegate.swift */,
 				5A46EE9E2353E5DA00FD1848 /* SceneDelegate.swift */,
 				5A46EEA02353E5DA00FD1848 /* ViewController.swift */,
@@ -150,6 +156,22 @@
 				5A46EEC02353E5DF00FD1848 /* Info.plist */,
 			);
 			path = PendulumUITests;
+			sourceTree = "<group>";
+		};
+		D403525E236FFB49009DFD94 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D403525F236FFB63009DFD94 /* UIViewextensios.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D403526A237086F6009DFD94 /* PendulumScene */ = {
+			isa = PBXGroup;
+			children = (
+				D403526D237087B3009DFD94 /* PendulumScene.swift */,
+			);
+			path = PendulumScene;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,10 +312,12 @@
 				D2E3C60B2354466A002CE684 /* QuestionTableViewController.swift in Sources */,
 				D2E3C60F23544C9A002CE684 /* Answer.swift in Sources */,
 				5A46EEA12353E5DA00FD1848 /* ViewController.swift in Sources */,
+				D4035260236FFB63009DFD94 /* UIViewextensios.swift in Sources */,
 				5A46EE9D2353E5DA00FD1848 /* AppDelegate.swift in Sources */,
 				5A46EED12353F6C900FD1848 /* VariableConfigurationViewController.swift in Sources */,
 				5A46EECF2353ECBF00FD1848 /* Pendulum.swift in Sources */,
 				5A46EE9F2353E5DA00FD1848 /* SceneDelegate.swift in Sources */,
+				D403526E237087B3009DFD94 /* PendulumScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import SpriteKit
 
 class PendulumViewController: UIViewController, UpdatePendulumVariables {
 
-    @IBOutlet weak var pendulumStringView: UIView!
-    @IBOutlet weak var pendulumView: UIView!
+    @IBOutlet weak var pendulumSKView: SKView!
+    var pendulumScene: PendulumScene!
+    
     @IBOutlet weak var configureVariablesBtn: UIButton!
     
     // Normal Timer Variables
@@ -26,26 +28,21 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        pendulumStringView.center.x = self.view.center.x
-        pendulumView.center.x = self.view.center.x
-        pendulumView.layer.cornerRadius = pendulumView.frame.width / 2
-        
         configureVariablesBtn.layer.cornerRadius = 8
-    }
-    
-    func initialPendulumSetup() {
         
-    }
-    
-    func updatePendulumView() {
+        // Add pendulum scene to pendulum skview
+        pendulumScene = PendulumScene(size: CGSize(width: pendulumSKView.frame.width, height: pendulumSKView.frame.height))
+        pendulumScene.longitude = 400
         
+        pendulumScene.scaleMode = .aspectFill
+        pendulumSKView.presentScene(pendulumScene)
+        pendulumSKView.ignoresSiblingOrder = true
     }
     
     func updatePendulumVariables(longitude: Float, gravity: Float) {
-        self.pendulumObj.longitude = longitude
-        self.pendulumObj.gravity = gravity
-        updatePendulumView()
+        pendulumScene.longitude = CGFloat(longitude * 400)
+        pendulumScene.gravity = Double(gravity)
+        pendulumScene.startPendulum(to: pendulumSKView)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -54,7 +51,7 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables {
         destination.pendulumViewController = self
     }
     
-    // Normal Timer Actions
+    // MARK: Timer
     @objc func updateNormalTimer() {
         normalTimerCounter += 1
         let milliseconds = normalTimerCounter % 100
