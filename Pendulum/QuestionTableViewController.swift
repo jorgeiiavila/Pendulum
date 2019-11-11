@@ -70,6 +70,15 @@ class QuestionTableViewController: UITableViewController {
         } else {
             let cell = self.tableView.cellForRow(at: indexPath)
             cell?.backgroundColor = .red
+            var index = 0
+            for answer in question.answers{
+                if answer.isCorrect{
+                    break
+                }
+                index += 1
+            }
+            let correctCell = self.tableView.cellForRow(at: IndexPath(row: index, section: 1))
+            correctCell?.backgroundColor = .green
         }
         
         self.tableView.isUserInteractionEnabled = false
@@ -82,23 +91,23 @@ class QuestionTableViewController: UITableViewController {
         switch self.questionType {
         case 0:
             
-            let question = Question(question: "Encuentra el periodo dado l = \(pendulum.longitude) y g = \(pendulum.gravity)", answers: self.generateAnswers(pendulum: pendulum))
+            let question = Question(question: "Encuentra el periodo dado l = " + String(format: "%.2f", pendulum.longitude) + " y g = " + String(format: "%.2f", pendulum.gravity), answers: self.generateAnswers(pendulum: pendulum))
             self.question = question
             
             break
             
         case 1:
-            let question = Question(question: "Encuentra la longitud dado p = \(pendulum.getPeriod()) y g = \(pendulum.gravity)", answers: self.generateAnswers(pendulum: pendulum))
+            let question = Question(question: "Encuentra la longitud dado p = " + String(format: "%.2f", pendulum.getPeriod()) + " y g =" + String(format: "%.2f", pendulum.gravity), answers: self.generateAnswers(pendulum: pendulum))
             self.question = question
             
             break
             
         default:
-            let question = Question(question: "Encuentra la gravedad dado l = \(pendulum.longitude) y T = \(pendulum.getPeriod())", answers: self.generateAnswers(pendulum: pendulum))
+            let question = Question(question: "Encuentra la gravedad dado l = " + String(format: "%.2f", pendulum.longitude) + " y T = " + String(format: "%.2f", pendulum.getPeriod()), answers: self.generateAnswers(pendulum: pendulum))
             self.question = question
             
             break
-            
+
         }
     }
     
@@ -108,28 +117,28 @@ class QuestionTableViewController: UITableViewController {
         case 0:
             let period = pendulum.getPeriod()
             
-            answer.append(Answer(answer: String(period), isCorrect: true))
-            answer.append(Answer(answer: String(period + 5), isCorrect: false))
-            answer.append(Answer(answer: String(period - 5), isCorrect: false))
-            answer.append(Answer(answer: String(period + 10), isCorrect: false))
+            answer.append(Answer(answer: String(format: "%.2f", period), isCorrect: true))
+            answer.append(Answer(answer: String(format: "%.2f", period + 5), isCorrect: false))
+            answer.append(Answer(answer: String(format: "%.2f", period - 5), isCorrect: false))
+            answer.append(Answer(answer: String(format: "%.2f", period + 10), isCorrect: false))
             break
             
         case 1:
             let longitude = pendulum.getLongitude(period: pendulum.getPeriod())
             
-            answer.append(Answer(answer: String(longitude), isCorrect: true))
-            answer.append(Answer(answer: String(longitude + 5), isCorrect: false))
-            answer.append(Answer(answer: String(longitude - 5), isCorrect: false))
-            answer.append(Answer(answer: String(longitude + 10), isCorrect: false))
+            answer.append(Answer(answer: String(format: "%.2f", longitude), isCorrect: true))
+            answer.append(Answer(answer: String(format: "%.2f", longitude + 5), isCorrect: false))
+            answer.append(Answer(answer: String(format: "%.2f", longitude - 5), isCorrect: false))
+            answer.append(Answer(answer: String(format: "%.2f", longitude + 10), isCorrect: false))
             break
             
         case 2:
             let gravity = pendulum.getGravity(period: pendulum.getPeriod())
             
-            answer.append(Answer(answer: String(gravity), isCorrect: true))
-            answer.append(Answer(answer: String(gravity + 5), isCorrect: false))
-            answer.append(Answer(answer: String(gravity - 5), isCorrect: false))
-            answer.append(Answer(answer: String(gravity + 10), isCorrect: false))
+            answer.append(Answer(answer: String(format: "%.2f", gravity), isCorrect: true))
+            answer.append(Answer(answer: String(format: "%.2f", gravity + 5), isCorrect: false))
+            answer.append(Answer(answer: String(format: "%.2f", gravity - 5), isCorrect: false))
+            answer.append(Answer(answer: String(format: "%.2f", gravity + 10), isCorrect: false))
             break
         default:
             break
