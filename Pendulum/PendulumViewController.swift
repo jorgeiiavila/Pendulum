@@ -9,30 +9,32 @@
 import UIKit
 import SpriteKit
 
-class PendulumViewController: UIViewController, UpdatePendulumVariables {
+class PendulumViewController: UIViewController, UpdatePendulumVariables, PendulumAngle {
 
     @IBOutlet weak var pendulumSKView: SKView!
     var pendulumScene: PendulumScene!
     
+    @IBOutlet weak var reiniciarBtn: UIButton!
     @IBOutlet weak var configureVariablesBtn: UIButton!
     
     // Normal Timer Variables
     @IBOutlet weak var normalTimerView: UIView!
     @IBOutlet weak var normalTimerLabel: UILabel!
     @IBOutlet weak var playPauseBtn: UIButton!
+    @IBOutlet weak var angleLabel: UILabel!
+    
     var isNormalTimerPlaying = false
     var normalTimerCounter = 0
     var normalTimer = Timer()
     
-    var pendulumObj = Pendulum()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        reiniciarBtn.layer.cornerRadius = 8
         configureVariablesBtn.layer.cornerRadius = 8
         
         // Add pendulum scene to pendulum skview
         pendulumScene = PendulumScene(size: CGSize(width: pendulumSKView.frame.width, height: pendulumSKView.frame.height))
-        pendulumScene.longitude = 400
+        pendulumScene.pendulumViewController = self
         
         pendulumScene.scaleMode = .aspectFill
         pendulumSKView.presentScene(pendulumScene)
@@ -40,18 +42,16 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables {
     }
     
     func updatePendulumVariables(longitude: Float, gravity: Float) {
-        pendulumScene.longitude = CGFloat(longitude * 400)
-        pendulumScene.gravity = Double(gravity)
-        pendulumScene.startPendulum(to: pendulumSKView)
+        pendulumScene.updateUserConfig(longitude: CGFloat(longitude), gravity: CGFloat(gravity))
+        pendulumScene.didMove(to: pendulumSKView)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! VariableConfigurationViewController
-        destination.pendulum = pendulumObj
+        destination.pendulum = pendulumScene.pendulum
         destination.pendulumViewController = self
     }
     
-    // MARK: Timer
     @objc func updateNormalTimer() {
         normalTimerCounter += 1
         let milliseconds = normalTimerCounter % 100
@@ -89,5 +89,14 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables {
     @IBAction func showHideNormalTimer(_ sender: UISwitch) {
         resetTimer()
         normalTimerView.isHidden = !sender.isOn
+    }
+    
+    
+    @IBAction func resetPendulum(_ sender: UIButton) {
+        pendulumScene.didMove(to: pendulumSKView)
+    }
+    
+    func pendulumCurrAngle(degrees: Int) {
+        angleLabel.text = String(degrees) + "º"
     }
 }

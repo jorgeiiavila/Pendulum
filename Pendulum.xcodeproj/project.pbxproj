@@ -18,6 +18,7 @@
 		5A46EECD2353EC7800FD1848 /* PendulumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46EECC2353EC7800FD1848 /* PendulumViewController.swift */; };
 		5A46EECF2353ECBF00FD1848 /* Pendulum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46EECE2353ECBF00FD1848 /* Pendulum.swift */; };
 		5A46EED12353F6C900FD1848 /* VariableConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46EED02353F6C900FD1848 /* VariableConfigurationViewController.swift */; };
+		5AD20A182381D47000522B49 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD20A172381D47000522B49 /* Constants.swift */; };
 		D2E3C6092354463D002CE684 /* Questions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E3C6082354463D002CE684 /* Questions.storyboard */; };
 		D2E3C60B2354466A002CE684 /* QuestionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3C60A2354466A002CE684 /* QuestionTableViewController.swift */; };
 		D2E3C60D235449FB002CE684 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E3C60C235449FB002CE684 /* Question.swift */; };
@@ -62,6 +63,7 @@
 		5A46EECC2353EC7800FD1848 /* PendulumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendulumViewController.swift; sourceTree = "<group>"; };
 		5A46EECE2353ECBF00FD1848 /* Pendulum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pendulum.swift; sourceTree = "<group>"; };
 		5A46EED02353F6C900FD1848 /* VariableConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableConfigurationViewController.swift; sourceTree = "<group>"; };
+		5AD20A172381D47000522B49 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D2E3C6082354463D002CE684 /* Questions.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Questions.storyboard; sourceTree = "<group>"; };
 		D2E3C60A2354466A002CE684 /* QuestionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewController.swift; sourceTree = "<group>"; };
 		D2E3C60C235449FB002CE684 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				D2E3C60C235449FB002CE684 /* Question.swift */,
 				D2E3C60E23544C9A002CE684 /* Answer.swift */,
 				D2E3C610235455D7002CE684 /* QuestionTableViewCell.swift */,
+				5AD20A172381D47000522B49 /* Constants.swift */,
 			);
 			path = Pendulum;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				D2E3C60F23544C9A002CE684 /* Answer.swift in Sources */,
 				5A46EEA12353E5DA00FD1848 /* ViewController.swift in Sources */,
 				D4035260236FFB63009DFD94 /* UIViewextensios.swift in Sources */,
+				5AD20A182381D47000522B49 /* Constants.swift in Sources */,
 				5A46EE9D2353E5DA00FD1848 /* AppDelegate.swift in Sources */,
 				5A46EED12353F6C900FD1848 /* VariableConfigurationViewController.swift in Sources */,
 				5A46EECF2353ECBF00FD1848 /* Pendulum.swift in Sources */,

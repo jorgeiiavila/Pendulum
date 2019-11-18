@@ -86,7 +86,7 @@ class QuestionTableViewController: UITableViewController {
     }
     
     func generateQuestion(){
-         let pendulum = Pendulum(longitude: Float.random(in: 1...50), gravity: Float.random(in: 1...50))
+         let pendulum = Pendulum(longitude: CGFloat.random(in: 1...50), gravity: CGFloat.random(in: 1...50))
         
         switch self.questionType {
         case 0:

@@ -33,7 +33,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXd-Vr-4xs">
                                 <rect key="frame" x="64" y="255" width="286" height="48"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="h2R-Ym-fSE"/>
                                 </constraints>
@@ -46,7 +46,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBg-ec-gmc">
                                 <rect key="frame" x="64" y="319" width="286" height="48"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="WCv-Z5-cp3"/>
                                 </constraints>
@@ -97,8 +97,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Kl-Ys-Z5j" customClass="SKView">
-                                <rect key="frame" x="16" y="88" width="382" height="702"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="646"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heV-80-qud">
+                                <rect key="frame" x="16" y="750" width="382" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2F4-9S-bD7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Reiniciar"/>
+                                <connections>
+                                    <action selector="resetPendulum:" destination="y8h-x1-RTL" eventType="touchUpInside" id="25Q-II-E8y"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WxB-58-w54">
                                 <rect key="frame" x="16" y="806" width="382" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -171,32 +184,45 @@
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button" image="timer" catalog="system"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HeG-CV-sGM">
+                                <rect key="frame" x="16" y="135" width="18" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="heV-80-qud" firstAttribute="top" secondItem="7Kl-Ys-Z5j" secondAttribute="bottom" constant="16" id="0Vi-XV-beu"/>
                             <constraint firstItem="myq-SM-Age" firstAttribute="bottom" secondItem="WxB-58-w54" secondAttribute="bottom" constant="16" id="0wa-Qw-apc"/>
+                            <constraint firstItem="WxB-58-w54" firstAttribute="top" secondItem="heV-80-qud" secondAttribute="bottom" constant="16" id="3Xm-ET-f8T"/>
                             <constraint firstItem="TJf-nY-5wn" firstAttribute="centerY" secondItem="03E-CH-gMM" secondAttribute="centerY" id="7cd-8d-Kvb"/>
                             <constraint firstItem="WxB-58-w54" firstAttribute="leading" secondItem="myq-SM-Age" secondAttribute="leading" constant="16" id="HGk-A0-ilO"/>
                             <constraint firstItem="efb-gF-fSO" firstAttribute="centerY" secondItem="TJf-nY-5wn" secondAttribute="centerY" id="SUg-EC-B0l"/>
                             <constraint firstItem="efb-gF-fSO" firstAttribute="leading" secondItem="myq-SM-Age" secondAttribute="leading" constant="16" id="TOU-JB-A8F"/>
                             <constraint firstItem="myq-SM-Age" firstAttribute="trailing" secondItem="WxB-58-w54" secondAttribute="trailing" constant="16" id="Tfa-eL-syj"/>
                             <constraint firstItem="myq-SM-Age" firstAttribute="trailing" secondItem="03E-CH-gMM" secondAttribute="trailing" id="Tvb-jZ-eBO"/>
+                            <constraint firstItem="HeG-CV-sGM" firstAttribute="top" secondItem="efb-gF-fSO" secondAttribute="bottom" constant="16" id="W3U-Uf-Acp"/>
                             <constraint firstItem="03E-CH-gMM" firstAttribute="top" secondItem="myq-SM-Age" secondAttribute="top" id="XYI-o7-ifq"/>
-                            <constraint firstItem="myq-SM-Age" firstAttribute="trailing" secondItem="7Kl-Ys-Z5j" secondAttribute="trailing" constant="16" id="Z9e-Nm-WRP"/>
-                            <constraint firstItem="7Kl-Ys-Z5j" firstAttribute="leading" secondItem="myq-SM-Age" secondAttribute="leading" constant="16" id="gpP-1E-Qil"/>
-                            <constraint firstItem="WxB-58-w54" firstAttribute="top" secondItem="7Kl-Ys-Z5j" secondAttribute="bottom" constant="16" id="psW-O9-Ip7"/>
+                            <constraint firstItem="myq-SM-Age" firstAttribute="trailing" secondItem="7Kl-Ys-Z5j" secondAttribute="trailing" id="Z9e-Nm-WRP"/>
+                            <constraint firstItem="7Kl-Ys-Z5j" firstAttribute="leading" secondItem="myq-SM-Age" secondAttribute="leading" id="gpP-1E-Qil"/>
+                            <constraint firstItem="myq-SM-Age" firstAttribute="trailing" secondItem="heV-80-qud" secondAttribute="trailing" constant="16" id="hAa-nR-wQO"/>
                             <constraint firstItem="TJf-nY-5wn" firstAttribute="leading" secondItem="efb-gF-fSO" secondAttribute="trailing" constant="16" id="qKq-Ig-ANa"/>
                             <constraint firstItem="7Kl-Ys-Z5j" firstAttribute="top" secondItem="myq-SM-Age" secondAttribute="top" id="wzZ-NW-C6c"/>
+                            <constraint firstItem="heV-80-qud" firstAttribute="leading" secondItem="myq-SM-Age" secondAttribute="leading" constant="16" id="y4M-HR-Wx2"/>
+                            <constraint firstItem="HeG-CV-sGM" firstAttribute="leading" secondItem="myq-SM-Age" secondAttribute="leading" constant="16" id="zdq-qT-Z3h"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="myq-SM-Age"/>
                     </view>
                     <navigationItem key="navigationItem" title="Simulador" id="XuW-3H-SfY"/>
                     <connections>
+                        <outlet property="angleLabel" destination="HeG-CV-sGM" id="Duy-Pu-1yI"/>
                         <outlet property="configureVariablesBtn" destination="WxB-58-w54" id="r17-ei-akw"/>
                         <outlet property="normalTimerLabel" destination="h4n-5v-xeE" id="app-kZ-Oft"/>
                         <outlet property="normalTimerView" destination="03E-CH-gMM" id="ddj-LD-IJn"/>
                         <outlet property="pendulumSKView" destination="7Kl-Ys-Z5j" id="8tG-8b-jhl"/>
                         <outlet property="playPauseBtn" destination="a6g-XH-f2e" id="Ys9-ZJ-87n"/>
+                        <outlet property="reiniciarBtn" destination="heV-80-qud" id="CYt-Ob-FK6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHC-cy-WeE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

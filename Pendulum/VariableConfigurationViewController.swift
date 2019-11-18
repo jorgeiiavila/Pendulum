@@ -23,8 +23,6 @@ class VariableConfigurationViewController: UIViewController {
     
     var pendulumViewController: PendulumViewController?
     var pendulum: Pendulum?
-    let maxLongitudeValue: Float = 1.0
-    let maxGravityValue: Float = 20.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +30,17 @@ class VariableConfigurationViewController: UIViewController {
         
         longitudeTF.text = String(format: "%.1f", pendulum!.longitude)
         gravityTF.text = String(format: "%.1f", pendulum!.gravity)
-        longitudeSlider.value = pendulum!.longitude / maxLongitudeValue
-        gravitySlider.value = pendulum!.gravity / maxGravityValue
+        longitudeSlider.value = Float(pendulum!.longitude / Constants.MaxLongitudeValue)
+        gravitySlider.value = Float(pendulum!.gravity / Constants.MaxGravityValue)
     }
     
     @IBAction func longitudeValueChanged(_ sender: UISlider) {
-        let newValue = round((maxLongitudeValue - 0.1) * sender.value * 10) / 10 + 0.1
+        let newValue = round((Constants.MaxLongitudeValue - 0.1) * CGFloat(sender.value) * 10) / 10 + 0.1
         longitudeTF.text = String(format: "%.1f", newValue)
     }
     
     @IBAction func gravityValueChanged(_ sender: UISlider) {
-        let newValue = round(maxGravityValue * sender.value * 10) / 10
+        let newValue = round(Constants.MaxGravityValue * CGFloat(sender.value) * 10) / 10
         gravityTF.text = String(format: "%.1f", newValue)
     }
 
@@ -56,7 +54,7 @@ class VariableConfigurationViewController: UIViewController {
     @IBAction func resetDefaultValues(_ sender: UIButton) {
         longitudeTF.text = String(format: "%.1f", 0.7)
         gravityTF.text = String(format: "%.1f", 9.8)
-        longitudeSlider.value = 0.7 / maxLongitudeValue
-        gravitySlider.value = 9.8 / maxGravityValue
+        longitudeSlider.value = Float(0.7 / Constants.MaxLongitudeValue)
+        gravitySlider.value = Float(9.8 / Constants.MaxGravityValue)
     }
 }

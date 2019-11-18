@@ -7,32 +7,18 @@
 //
 
 import SpriteKit
- 
-class PendulumScene: SKScene {
 
-    private var line = SKShapeNode()
+protocol PendulumAngle {
+    func pendulumCurrAngle(degrees: Int)
+}
+
+class PendulumScene: SKScene {
+    
+    private let line = SKShapeNode()
     private let circle = SKShapeNode(circleOfRadius: 40 )
-    
-    private var originX: CGFloat = 0.0
-    private var originY: CGFloat = 0.0
-    private var bobX: CGFloat = 0.0
-    private var bobY: CGFloat = 0.0
-    
-    private var _longitude: CGFloat = 200
-    var longitude: CGFloat {
-        get { return self._longitude }
-        set { self._longitude = newValue }
-    }
-    
-    private var _gravity: Double = 9.8
-    var gravity: Double {
-        get { return self._gravity }
-        set { self._gravity = newValue }
-    }
-    
-    private var angle: CGFloat = 0.0
-    private var aAcc: CGFloat = 0.0
-    private var aVel: CGFloat = 0.0
+    private var circleTouch: UITouch?
+    var pendulum = Pendulum(longitude: Constants.DefaultLongitude, gravity: Constants.DefaultGravity)
+    var pendulumViewController: PendulumViewController?
     
     override init(size: CGSize) {
         super.init(size: size)
@@ -46,50 +32,70 @@ class PendulumScene: SKScene {
     
     private func drawLine(from: CGPoint, to: CGPoint) {
         line.removeFromParent()
-        
         let path = CGMutablePath()
         path.move(to: from)
         path.addLine(to: to)
-        
-        line = SKShapeNode(path: path)
+        line.path = path
         line.strokeColor = SKColor.black
-        
         self.addChild(line)
     }
     
-    private func drawCircle() {
+    func drawPendulum() {
         circle.removeFromParent()
-        
-        circle.position = CGPoint(x: bobX, y: bobY)
+        circle.position = pendulum.getBobPosition()
+        circle.strokeColor = SKColor.black
+        circle.glowWidth = 1.0
         circle.fillColor = SKColor.orange
-        
         self.addChild(circle)
     }
     
     override func update(_ currentTime: TimeInterval) {
-        bobX = originX + longitude * sin(angle)
-        bobY = originY - longitude * cos(angle)
-            
-        drawLine(from: CGPoint(x: originX, y: originY), to: CGPoint(x: bobX, y: bobY))
-        drawCircle()
-            
-        aAcc = -0.01 * sin(angle)
-        angle += aVel
-        aVel += aAcc
-        aVel *= 0.99
+        if circleTouch == nil {
+            pendulum.movePendulum()
+        }
+        
+        drawLine(from: pendulum.getLineOrigin(), to: pendulum.getBobPosition())
+        drawPendulum()
     }
     
     override func didMove(to view: SKView) {
-        startPendulum(to: view)
+        pendulum.initPendulum(originX: view.frame.width / 2, originY: view.frame.height, bobX: view.frame.width / 2, bobY: view.frame.height - pendulum.pixels())
+        pendulumViewController?.pendulumCurrAngle(degrees: 0)
     }
     
-    func startPendulum(to view: SKView) {
-        originX = view.frame.width / 2
-        originY = view.frame.height
-        
-        bobX = view.frame.width / 2
-        bobY = view.frame.height - longitude
-        
-        angle = CGFloat.pi / 6
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            if atPoint(touch.location(in: self)) == circle {
+                circleTouch = touch
+                pendulum.resetMovement()
+            }
+        }
+    }
+    
+    // Check if the touch event that is moving is the one that anchored the circle to our finger, if yes, move the circle to the position of the finger.
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            if circleTouch != nil && touch as UITouch == circleTouch! {
+                let location = touch.location(in: self)
+                let wasMoved = pendulum.movePendulumWithTouch(location: location)
+                
+                if wasMoved {
+                    pendulumViewController?.pendulumCurrAngle(degrees: pendulum.degrees())
+                }
+            }
+        }
+    }
+    
+    // Clean up the touch event when the finger anchoring the circle is raised from the screen.
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            if circleTouch != nil && touch as UITouch == circleTouch!{
+                circleTouch = nil
+            }
+        }
+    }
+    
+    func updateUserConfig(longitude: CGFloat, gravity: CGFloat) {
+        pendulum.setUserConfig(longitude: longitude, gravity: gravity)
     }
 }
