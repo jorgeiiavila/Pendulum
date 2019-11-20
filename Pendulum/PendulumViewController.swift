@@ -23,6 +23,9 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables, Pendulu
     @IBOutlet weak var playPauseBtn: UIButton!
     @IBOutlet weak var angleLabel: UILabel!
     
+    @IBOutlet weak var periodLabel: UILabel!
+    @IBOutlet weak var playPausePendulumBtn: UIButton!
+    
     var isNormalTimerPlaying = false
     var normalTimerCounter = 0
     var normalTimer = Timer()
@@ -34,6 +37,7 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables, Pendulu
         
         
         pendulumSKView.ignoresSiblingOrder = true
+        pendulumSKView.allowsTransparency = true
         
         DispatchQueue.main.async {
             self.pendulumScene = PendulumScene(size: CGSize(width: self.pendulumSKView.frame.width, height: self.pendulumSKView.frame.height))
@@ -42,17 +46,23 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables, Pendulu
             
             self.pendulumSKView.presentScene(self.pendulumScene)
             self.pendulumScene.didMove(to: self.pendulumSKView)
+            
+            self.displayPeriod()
         }
 
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
+    func displayPeriod() {
+        let period = String(format: "%.4f", pendulumScene.pendulum.getPeriod())
+        periodLabel.text = "\(period) s"
     }
+
     
     func updatePendulumVariables(longitude: Float, gravity: Float) {
         pendulumScene.updateUserConfig(longitude: CGFloat(longitude), gravity: CGFloat(gravity))
         pendulumScene.didMove(to: pendulumSKView)
+        
+        displayPeriod()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -112,6 +122,16 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables, Pendulu
     
     func pendulumCurrAngle(degrees: Int) {
         angleLabel.text = String(degrees) + "º"
+    }
+    
+    @IBAction func pausePendulum(_ sender: Any) {
+        pendulumScene.pausedPendulum = !pendulumScene.pausedPendulum
+        
+        if pendulumScene.pausedPendulum {
+            playPausePendulumBtn.setImage(UIImage(systemName: "play"), for: .normal)
+        } else {
+            playPausePendulumBtn.setImage(UIImage(systemName: "pause"), for: .normal)
+        }
     }
     
     func setUpUI(){

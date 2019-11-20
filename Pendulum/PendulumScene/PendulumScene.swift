@@ -20,6 +20,8 @@ class PendulumScene: SKScene {
     var pendulum = Pendulum(longitude: Constants.DefaultLongitude, gravity: Constants.DefaultGravity)
     var pendulumViewController: PendulumViewController?
     
+    var pausedPendulum = false
+    
     override init(size: CGSize) {
         super.init(size: size)
         self.backgroundColor = SKColor.clear
@@ -62,7 +64,7 @@ class PendulumScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        if circleTouch == nil {
+        if circleTouch == nil && !pausedPendulum {
             pendulum.movePendulum()
         }
         
@@ -103,6 +105,7 @@ class PendulumScene: SKScene {
         for touch in touches {
             if circleTouch != nil && touch as UITouch == circleTouch!{
                 circleTouch = nil
+//                startedMoving = true
             }
         }
     }

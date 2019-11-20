@@ -23,7 +23,7 @@ class Pendulum: NSObject {
         get { return self._gravity }
         set { self._gravity = newValue }
     }
-    private var angle: CGFloat = 0.0 // Angle in radians
+     var angle: CGFloat = 0.0 // Angle in radians
     private var aAcc: CGFloat = 0.0
     private var aVel: CGFloat = 0.0
     
