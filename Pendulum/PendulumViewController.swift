@@ -29,8 +29,8 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables, Pendulu
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        reiniciarBtn.layer.cornerRadius = 8
-        configureVariablesBtn.layer.cornerRadius = 8
+        
+        self.setUpUI()
         
         // Add pendulum scene to pendulum skview
         pendulumScene = PendulumScene(size: CGSize(width: pendulumSKView.frame.width, height: pendulumSKView.frame.height))
@@ -105,5 +105,20 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables, Pendulu
         angleLabel.text = String(degrees) + "º"
     }
     
+    func setUpUI(){
+        self.reiniciarBtn.layer.cornerRadius = 12
+        self.configureVariablesBtn.layer.cornerRadius = 12
+        
+        let buttonFont = UIFont.boldSystemFont(ofSize: 15)
+        self.reiniciarBtn.titleLabel?.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: buttonFont)
+        self.reiniciarBtn.titleLabel?.adjustsFontForContentSizeCategory = true
+        
+        self.configureVariablesBtn.titleLabel?.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: buttonFont)
+        self.configureVariablesBtn.titleLabel?.adjustsFontForContentSizeCategory = true
+    }
     
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask { return UIInterfaceOrientationMask.landscape
+    }
+    override var shouldAutorotate: Bool { return false
+    }
 }
