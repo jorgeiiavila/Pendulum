@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kbk-I3-WIj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kbk-I3-WIj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -156,6 +156,7 @@ Pendulum se distribuye como está de manera gratuita y se prohíbe su distribu
                         <subviews>
                             <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Kl-Ys-Z5j" customClass="SKView">
                                 <rect key="frame" x="0.0" y="88" width="414" height="646"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heV-80-qud">
                                 <rect key="frame" x="16" y="750" width="382" height="40"/>
@@ -190,16 +191,19 @@ Pendulum se distribuye como está de manera gratuita y se prohíbe su distribu
                                 </connections>
                             </switch>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03E-CH-gMM">
-                                <rect key="frame" x="245.5" y="88" width="168.5" height="40"/>
+                                <rect key="frame" x="237" y="88" width="177" height="40"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4n-5v-xeE">
-                                        <rect key="frame" x="47" y="10" width="71.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4n-5v-xeE">
+                                        <rect key="frame" x="47" y="10" width="80" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="4sc-0M-bvD"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUX-hJ-OPX">
-                                        <rect key="frame" x="134.5" y="9" width="18" height="22"/>
+                                        <rect key="frame" x="143" y="9" width="18" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="Sno-6d-ECa"/>
                                             <constraint firstAttribute="width" constant="18" id="mgF-NF-pDz"/>
@@ -239,11 +243,10 @@ Pendulum se distribuye como está de manera gratuita y se prohíbe su distribu
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="Nha-y7-Vih"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="22" id="x1G-vI-YsI"/>
                                 </constraints>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="timer" catalog="system"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HeG-CV-sGM">
-                                <rect key="frame" x="20" y="135" width="18" height="21"/>
+                                <rect key="frame" x="16" y="135" width="18" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -255,7 +258,6 @@ Pendulum se distribuye como está de manera gratuita y se prohíbe su distribu
                             <constraint firstItem="myq-SM-Age" firstAttribute="bottom" secondItem="WxB-58-w54" secondAttribute="bottom" constant="16" id="0wa-Qw-apc"/>
                             <constraint firstItem="WxB-58-w54" firstAttribute="top" secondItem="heV-80-qud" secondAttribute="bottom" constant="16" id="3Xm-ET-f8T"/>
                             <constraint firstItem="TJf-nY-5wn" firstAttribute="centerY" secondItem="03E-CH-gMM" secondAttribute="centerY" id="7cd-8d-Kvb"/>
-                            <constraint firstItem="TJf-nY-5wn" firstAttribute="leading" secondItem="HeG-CV-sGM" secondAttribute="trailing" constant="8" id="8cp-uJ-3Pb"/>
                             <constraint firstItem="WxB-58-w54" firstAttribute="leading" secondItem="myq-SM-Age" secondAttribute="leading" constant="16" id="HGk-A0-ilO"/>
                             <constraint firstItem="efb-gF-fSO" firstAttribute="centerY" secondItem="TJf-nY-5wn" secondAttribute="centerY" id="SUg-EC-B0l"/>
                             <constraint firstItem="efb-gF-fSO" firstAttribute="leading" secondItem="myq-SM-Age" secondAttribute="leading" constant="16" id="TOU-JB-A8F"/>
@@ -269,7 +271,7 @@ Pendulum se distribuye como está de manera gratuita y se prohíbe su distribu
                             <constraint firstItem="TJf-nY-5wn" firstAttribute="leading" secondItem="efb-gF-fSO" secondAttribute="trailing" constant="8" id="qKq-Ig-ANa"/>
                             <constraint firstItem="7Kl-Ys-Z5j" firstAttribute="top" secondItem="myq-SM-Age" secondAttribute="top" id="wzZ-NW-C6c"/>
                             <constraint firstItem="heV-80-qud" firstAttribute="leading" secondItem="myq-SM-Age" secondAttribute="leading" constant="16" id="y4M-HR-Wx2"/>
-                            <constraint firstItem="HeG-CV-sGM" firstAttribute="leading" secondItem="myq-SM-Age" secondAttribute="leading" constant="20" id="zdq-qT-Z3h"/>
+                            <constraint firstItem="HeG-CV-sGM" firstAttribute="leading" secondItem="efb-gF-fSO" secondAttribute="leading" id="yYN-DO-G2I"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="myq-SM-Age"/>
                     </view>
@@ -408,7 +410,9 @@ Pendulum se distribuye como está de manera gratuita y se prohíbe su distribu
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="j9t-W7-M3d"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Configurar Variables" id="XPV-2n-2GA"/>
+                    <navigationItem key="navigationItem" title="Configurar Variables" largeTitleDisplayMode="always" id="XPV-2n-2GA">
+                        <barButtonItem key="backBarButtonItem" title="Simulador" id="FOY-r5-z4o"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="defaultValuesBtn" destination="shO-Ct-LEx" id="Wwb-w1-IGn"/>
                         <outlet property="gravityLbl" destination="6jo-0x-uiF" id="4hm-oG-2eT"/>
@@ -446,7 +450,7 @@ Pendulum se distribuye como está de manera gratuita y se prohíbe su distribu
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
-        <image name="play" catalog="system" width="60" height="64"/>
-        <image name="timer" catalog="system" width="64" height="60"/>
+        <image name="play" catalog="system" width="58" height="64"/>
+        <image name="timer" catalog="system" width="64" height="62"/>
     </resources>
 </document>

@@ -32,13 +32,22 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables, Pendulu
         
         self.setUpUI()
         
-        // Add pendulum scene to pendulum skview
-        pendulumScene = PendulumScene(size: CGSize(width: pendulumSKView.frame.width, height: pendulumSKView.frame.height))
-        pendulumScene.pendulumViewController = self
         
-        pendulumScene.scaleMode = .aspectFill
-        pendulumSKView.presentScene(pendulumScene)
         pendulumSKView.ignoresSiblingOrder = true
+        
+        DispatchQueue.main.async {
+            self.pendulumScene = PendulumScene(size: CGSize(width: self.pendulumSKView.frame.width, height: self.pendulumSKView.frame.height))
+            self.pendulumScene.pendulumViewController = self
+            self.pendulumScene.scaleMode = .aspectFill
+            
+            self.pendulumSKView.presentScene(self.pendulumScene)
+            self.pendulumScene.didMove(to: self.pendulumSKView)
+        }
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
     
     func updatePendulumVariables(longitude: Float, gravity: Float) {

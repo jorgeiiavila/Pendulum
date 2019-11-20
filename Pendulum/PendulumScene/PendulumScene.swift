@@ -22,12 +22,12 @@ class PendulumScene: SKScene {
     
     override init(size: CGSize) {
         super.init(size: size)
-        self.backgroundColor = SKColor.white
+        self.backgroundColor = SKColor.clear
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.backgroundColor = SKColor.white
+        self.backgroundColor = SKColor.clear
     }
     
     private func drawLine(from: CGPoint, to: CGPoint) {
@@ -36,16 +36,28 @@ class PendulumScene: SKScene {
         path.move(to: from)
         path.addLine(to: to)
         line.path = path
-        line.strokeColor = SKColor.black
+        
+        if pendulumViewController?.traitCollection.userInterfaceStyle == .dark {
+            line.strokeColor = SKColor.white
+        } else {
+            line.strokeColor = SKColor.black
+        }
+        
         self.addChild(line)
     }
     
     func drawPendulum() {
         circle.removeFromParent()
         circle.position = pendulum.getBobPosition()
-        circle.strokeColor = SKColor.black
+        
+        if pendulumViewController?.traitCollection.userInterfaceStyle == .dark {
+            circle.strokeColor = SKColor.white
+        } else {
+            circle.strokeColor = SKColor.black
+        }
+        
         circle.glowWidth = 1.0
-        circle.fillColor = SKColor.orange
+        circle.fillColor = SKColor.systemPink
         self.addChild(circle)
     }
     

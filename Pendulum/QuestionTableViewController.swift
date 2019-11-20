@@ -84,10 +84,8 @@ class QuestionTableViewController: UITableViewController {
         
         if question.answers[indexPath.row].isCorrect {
             let cell = self.tableView.cellForRow(at: indexPath)
-            cell?.backgroundColor = .green
+            cell?.backgroundColor = .systemGreen
         } else {
-            let cell = self.tableView.cellForRow(at: indexPath)
-            cell?.backgroundColor = .red
             var index = 0
             for answer in question.answers{
                 if answer.isCorrect{
@@ -95,8 +93,12 @@ class QuestionTableViewController: UITableViewController {
                 }
                 index += 1
             }
+            
+            let cell = self.tableView.cellForRow(at: indexPath)
             let correctCell = self.tableView.cellForRow(at: IndexPath(row: index, section: 1))
-            correctCell?.backgroundColor = .green
+            
+            cell?.backgroundColor = .systemPink
+            correctCell?.backgroundColor = .systemGreen
         }
         
         self.tableView.isUserInteractionEnabled = false
