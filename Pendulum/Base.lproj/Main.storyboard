@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kbk-I3-WIj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kbk-I3-WIj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,7 +33,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXd-Vr-4xs">
                                 <rect key="frame" x="64" y="255" width="286" height="48"/>
-                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="h2R-Ym-fSE"/>
                                 </constraints>
@@ -41,12 +41,12 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Simulador"/>
                                 <connections>
-                                    <segue destination="y8h-x1-RTL" kind="show" id="Oz9-tR-wJh"/>
+                                    <action selector="simulatorSection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="apF-hu-7sF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BBg-ec-gmc">
                                 <rect key="frame" x="64" y="319" width="286" height="48"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="WCv-Z5-cp3"/>
                                 </constraints>
@@ -55,7 +55,7 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Preguntas"/>
                                 <connections>
-                                    <action selector="preguntas:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tUM-KP-JjP"/>
+                                    <action selector="questionsSection:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PiB-y3-vAK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PÉNDULO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQU-v3-02b">
@@ -64,17 +64,34 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZlD-hp-9ob">
+                                <rect key="frame" x="64" y="786" width="286" height="48"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="reC-rv-aF7"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="h3q-0K-PVY"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Créditos"/>
+                                <connections>
+                                    <segue destination="pXU-TM-Ie6" kind="presentation" id="EhY-fx-C57"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="bQU-v3-02b" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="1sV-4X-IMs"/>
                             <constraint firstItem="gXd-Vr-4xs" firstAttribute="top" secondItem="bQU-v3-02b" secondAttribute="bottom" constant="64" id="4Bu-Fo-Yd8"/>
                             <constraint firstItem="bQU-v3-02b" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Cww-0G-riI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZlD-hp-9ob" secondAttribute="bottom" constant="28" id="IH2-L6-H1j"/>
+                            <constraint firstItem="ZlD-hp-9ob" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="LOn-ib-pOS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gXd-Vr-4xs" secondAttribute="trailing" constant="64" id="M3B-ua-uMe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BBg-ec-gmc" secondAttribute="trailing" constant="64" id="Sna-cg-1lY"/>
                             <constraint firstItem="BBg-ec-gmc" firstAttribute="top" secondItem="gXd-Vr-4xs" secondAttribute="bottom" constant="16" id="gao-hO-vMG"/>
                             <constraint firstItem="BBg-ec-gmc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="ggU-zX-GEB"/>
                             <constraint firstItem="gXd-Vr-4xs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="j5h-PX-W76"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZlD-hp-9ob" secondAttribute="trailing" constant="64" id="w7Z-2M-FLv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -87,6 +104,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qo4-a6-uEI">
+            <objects>
+                <viewController id="pXU-TM-Ie6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ma9-TL-vGr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qcb-37-pQY">
+                                <rect key="frame" x="20" y="136" width="374" height="303"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <mutableString key="text">Pendulum ha sido desarrollado por estudiantes del Tecnológico de Monterrey durante el semestre Agosto Diciembre de 2019, como parte del curso Desarrollo de Aplicaciones para Dispositivos Móviles y asesorados por la maestra Yolanda Martínez Treviño.
+
+Desarrolladores:
+Francisco Castro
+Jorge Iván Iribe
+Fernando Salazar
+
+Pendulum se distribuye como está de manera gratuita y se prohíbe su distribución y uso con fines de lucro.</mutableString>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qcb-37-pQY" firstAttribute="leading" secondItem="gEH-uq-Wz8" secondAttribute="leading" constant="20" id="FMp-Gf-qN5"/>
+                            <constraint firstItem="gEH-uq-Wz8" firstAttribute="trailing" secondItem="qcb-37-pQY" secondAttribute="trailing" constant="20" id="FsS-Kr-GL5"/>
+                            <constraint firstItem="qcb-37-pQY" firstAttribute="top" secondItem="gEH-uq-Wz8" secondAttribute="top" constant="136" id="GAF-n1-sTO"/>
+                            <constraint firstItem="gEH-uq-Wz8" firstAttribute="bottom" secondItem="qcb-37-pQY" secondAttribute="bottom" constant="369" id="e8h-qI-Wim"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gEH-uq-Wz8"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qPc-KK-8kW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="826.33928571428567"/>
         </scene>
         <!--Simulador-->
         <scene sceneID="Nfx-bj-aUS">
@@ -214,7 +269,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="myq-SM-Age"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Simulador" id="XuW-3H-SfY"/>
+                    <navigationItem key="navigationItem" title="Simulador" id="XuW-3H-SfY">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="m1H-7f-L8D">
+                            <connections>
+                                <action selector="dismissNC:" destination="y8h-x1-RTL" id="cxg-mB-MhY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="angleLabel" destination="HeG-CV-sGM" id="Duy-Pu-1yI"/>
                         <outlet property="configureVariablesBtn" destination="WxB-58-w54" id="r17-ei-akw"/>
@@ -227,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mHC-cy-WeE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1034.7826086956522" y="112.5"/>
+            <point key="canvasLocation" x="1944.9275362318842" y="112.5"/>
         </scene>
         <!--Configurar Variables-->
         <scene sceneID="TdM-VB-xcD">
@@ -342,12 +403,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H9C-Y3-2rO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1941" y="114"/>
+            <point key="canvasLocation" x="2850.7246376811595" y="113.83928571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="U6b-lE-Mzz">
+            <objects>
+                <navigationController storyboardIdentifier="ncSimulator" automaticallyAdjustsScrollViewInsets="NO" id="H8v-CM-gqt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Qxm-pD-JCM"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N88-dk-tSZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="y8h-x1-RTL" kind="relationship" relationship="rootViewController" id="fHA-2w-Ql9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="17b-hm-UXv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1034.7826086956522" y="112.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="56" height="64"/>
-        <image name="play" catalog="system" width="58" height="64"/>
-        <image name="timer" catalog="system" width="64" height="62"/>
+        <image name="play" catalog="system" width="60" height="64"/>
+        <image name="timer" catalog="system" width="64" height="60"/>
     </resources>
 </document>

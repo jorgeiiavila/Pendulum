@@ -10,19 +10,34 @@ import UIKit
 
 class QuestionTableViewController: UITableViewController {
     
+    @IBOutlet weak var clock: UIBarButtonItem!
+    
     var questionType: Int = Int.random(in: 0...2)
     var question: Question!
+    var rows: Int = 0
+    
+    var isNormalTimerPlaying = false
+    var normalTimerCounter = 0
+    var normalTimer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        startPauseNormalTimer()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.insertRows()
     }
 
     @IBAction func refreshQuestion(_ sender: UIBarButtonItem) {
         self.questionType = Int.random(in: 0...2)
         self.tableView.isUserInteractionEnabled = true
+        self.rows = 0
         self.generateQuestion()
+        self.resetTimer()
         self.tableView.reloadData()
+        self.insertRows()
+        self.startPauseNormalTimer()
     }
     // MARK: - Table view data source
 
@@ -35,7 +50,7 @@ class QuestionTableViewController: UITableViewController {
         if section == 0 {
             return 1
         } else {
-            return 4
+            return self.rows
         }
     }
 
@@ -48,6 +63,7 @@ class QuestionTableViewController: UITableViewController {
         if indexPath.section == 0 {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "QuestionTVCell") as! QuestionTableViewCell
             cell.questionLabel.text = self.question.question
+            cell.isUserInteractionEnabled = false
             return cell
         } else {
             //answers section
@@ -59,6 +75,8 @@ class QuestionTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
+        self.isNormalTimerPlaying = true
+        self.startPauseNormalTimer()
         
         if indexPath.section == 0 {
             return
@@ -97,7 +115,7 @@ class QuestionTableViewController: UITableViewController {
             break
             
         case 1:
-            let question = Question(question: "Encuentra la longitud dado p = " + String(format: "%.2f", pendulum.getPeriod()) + " y g =" + String(format: "%.2f", pendulum.gravity), answers: self.generateAnswers(pendulum: pendulum))
+            let question = Question(question: "Encuentra la longitud dado p = " + String(format: "%.2f", pendulum.getPeriod()) + " y g = " + String(format: "%.2f", pendulum.gravity), answers: self.generateAnswers(pendulum: pendulum))
             self.question = question
             
             break
@@ -149,5 +167,52 @@ class QuestionTableViewController: UITableViewController {
     
     @IBAction func closeView(_ sender: Any) {
         self.dismiss(animated: true)
+    }
+    
+    @objc func updateNormalTimer() {
+        normalTimerCounter += 1
+        let seconds = (normalTimerCounter / 100) % 60
+        let minutes = (normalTimerCounter / 100) / 60
+        let formattedStr = String(format: " %02d:%02d ", minutes, seconds)
+        self.tableView.footerView(forSection: 1)?.textLabel!.text = formattedStr
+    }
+    
+    func startPauseNormalTimer() {
+        if isNormalTimerPlaying {
+            isNormalTimerPlaying = false
+            normalTimer.invalidate()
+        } else {
+            isNormalTimerPlaying = true
+            normalTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateNormalTimer), userInfo: nil, repeats: true)
+        }
+    }
+    
+    func resetTimer() {
+        isNormalTimerPlaying = false
+        normalTimer.invalidate()
+        normalTimerCounter = 0
+    }
+    
+    func insertRows() {
+        self.rows = 0
+        insertRow(ind: 0)
+    }
+    
+    func insertRow(ind:Int) {
+        let indPath = IndexPath(row: ind, section: 1)
+        rows = ind + 1
+        tableView.insertRows(at: [indPath], with: .right)
+           
+        guard ind < question.answers.count-1 else { return }
+           DispatchQueue.main.asyncAfter(deadline: .now()+0.02) {
+               self.insertRow(ind: ind+1)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 1{
+            return "00:00  "
+        }
+        return nil
     }
 }

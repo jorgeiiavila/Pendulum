@@ -78,6 +78,10 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables, Pendulu
         resetTimer()
     }
     
+    @IBAction func dismissNC(_ sender: Any) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
     func resetTimer() {
         isNormalTimerPlaying = false
         playPauseBtn.setImage(UIImage(systemName: "play"), for: .normal)
@@ -94,9 +98,12 @@ class PendulumViewController: UIViewController, UpdatePendulumVariables, Pendulu
     
     @IBAction func resetPendulum(_ sender: UIButton) {
         pendulumScene.didMove(to: pendulumSKView)
+        resetTimer()
     }
     
     func pendulumCurrAngle(degrees: Int) {
         angleLabel.text = String(degrees) + "º"
     }
+    
+    
 }

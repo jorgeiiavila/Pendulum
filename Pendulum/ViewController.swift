@@ -20,9 +20,15 @@ class ViewController: UIViewController {
         questionsBtn.layer.cornerRadius = 8
     }
 
-    @IBAction func preguntas(_ sender: UIButton) {
+    @IBAction func questionsSection(_ sender: UIButton) {
         let sb = UIStoryboard(name: "Questions", bundle: nil)
         let vc = sb.instantiateViewController(identifier: "ncQuestions")
+        vc.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func simulatorSection(_ sender: Any) {
+        let vc = self.storyboard!.instantiateViewController(identifier: "ncSimulator")
         vc.modalPresentationStyle = .fullScreen
         self.navigationController?.present(vc, animated: true, completion: nil)
     }
